@@ -21,14 +21,14 @@ In order to launch the app, you'll need to::<br><br>
 
 <li>1.Clone the repository</li>
 Enter the following in your Terminal to clone the Github repository:
-<code class="language-bash" data-lang="bash">git@github.com:arnaud-roudiere/swiss_tournament_game.git</code><br>
+<code class="language-bash" data-lang="bash">git@github.com:arnaud-roudiere/swiss_tournament_game.git</code><br><br>
 
 <li>2.Create a virtual environnement</li>
-To install the package, open the Terminal and type the following:<br>
+To install the package, open the Terminal and type the following:
 <code class="language-bash" data-lang="bash">pip install virtualenv</code><br>
-Create the virtual environnement<br>
+Create the virtual environnement:
 <code class="language-bash" data-lang="bash">virtualenv mypython</code><br>
-Once done, you can close it typing:<br>
+Once done, you can close it typing:
 <code class="language-bash" data-lang="bash">deactivate</code><br><br>
 
 <li>3.Install the requirements</li>
@@ -37,8 +37,8 @@ Install the packages with:
 
 
 <li>4.Run the App</li>
-- For unix or macos: <code class="language-bash" data-lang="bash">python3 main.py</code><br><br>
-- For windows: <code class="language-bash" data-lang="bash">py main.py</code><br><br>
+- For unix or macos: <code class="language-bash" data-lang="bash">python3 main.py</code><br>
+- For windows: <code class="language-bash" data-lang="bash">py main.py</code><br>
 
 ## How to use it?
 * Launch the App
