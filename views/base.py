@@ -70,7 +70,6 @@ class View:
 
         print("*--------------- Création d'un tournoi --------------- *")
 
-        """
         print(f"Entrez les données du tournoi:")
         nom_du_tournoi = input("Tapez le nom du tournoi")
         lieu = input("Tapez le lieu")
@@ -82,33 +81,24 @@ class View:
         # Par défaut 8
         controle_temps = True
         while controle_temps is True:
-            controle_du_temps   = input("Choisissez entre un mode de contrôle
+            controle_du_temps   = input("Choisissez entre un mode de contrôle\
          du temps entre bullet(1), blitz(2) ou un coup rapide(3)")
             reponses_attendues = ['1','2','3']
             if controle_du_temps not in reponses_attendues:
-                print('Réponse incorrecte. Veuillez retenter."
+                print('Réponse incorrecte. Veuillez retenter.')
             else:
                 controle_temps = False
         description = input("Entrez la description du tournoi")
 
+        nombre_de_tours = 4
+
         details_tournoi[nom_du_tournoi] = (lieu , date_debut ,
          date_fin , nombre_de_tours , tournees , joueurs ,
           controle_du_temps , description)
-        """
-        details_tournoi['tournoi_test'] = ('Londres', "01/01/1999",
-                                           "02/01/1999", 4, 'tournées',
-                                           "momo, popo, lolo", 'blitz',
-                                           'Description:Un tournoi test')
-        return self.Creation_joueurs(details_tournoi)
-
-    def creation_players(self, details_tournoi):
-        details_tournoi = details_tournoi
-        """ On va demander aux organisateurs d'entrer
-        les informations des 8 joueurs"""
 
         joueur: int
 
-        """
+        NOMBRE_DE_JOUEURS = int(joueurs)
         for joueur in range(0, NOMBRE_DE_JOUEURS):
             joueur += 1
             print(f"Entrez les données du joueur nº {joueur}")
@@ -118,21 +108,16 @@ class View:
             sexe                = input("Tapez le sexe du joueur")
             controle_reponse = True
             while controle_reponse is True:
-                classement   = input("Tapez le classement du
-                                    joueur (nombre positif)")
-                if int(classement) > 0:
-                    controle_reponse = False
-                else:
-                    print('Réponse incorrecte. Veuillez retenter."
+                classement   = int(input("Tapez le classement du\
+                                    joueur (nombre positif)"))
+                try:
+                    if int(classement) > 0:
+                        controle_reponse = False
+                    else:
+                        print('Réponse incorrecte. Veuillez retenter.')
+                except:
+                    print('Réponse incorrecte. Veuillez retenter.')
             liste_joueurs[joueur] = (nom_de_famille, prénom,
              date_de_naissance, sexe, classement)
-        """
-        liste_joueurs = {'1': ('Jean', 'Dupont', '110', 'M', 1),
-                         '2': ('Romain', 'Sanchez', '110', 'M', 4),
-                         '3': ('Didier', 'Lefevre', '110', 'M', 3),
-                         '4': ('Patrick', 'Poularde', '110', 'M', 2),
-                         '5': ('Jeanne', 'Dupuis', '110', 'M', 5),
-                         '6': ('Lucienne', 'LaFete', '110', 'M', 7),
-                         '7': ('Alice', 'Silvestre', '110', 'M', 8),
-                         '8': ('Alexandre', 'Perez', '110', 'M', 6)}
+
         return self.Creation_paires(liste_joueurs, details_tournoi)
