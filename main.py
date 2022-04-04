@@ -1,16 +1,15 @@
-def weird_decorator(function):
-    def wrapper():
-        print("bbb")
-        function()
-        function()
-        print("ccc")
-        function()
+"""Entry point."""
 
-    return wrapper
+from controllers.application import Application
+from models.tournoi import Tournament
 
 
-@weird_decorator
-def say_aaa():
-    print("aaa")
+def main():
 
-say_aaa()
+    tournament = Tournament()
+    game = Application(tournament)
+    game.run()
+
+
+if __name__ == "__main__":
+    main()
