@@ -3,8 +3,8 @@ An offline Swiss Chess Tournament app to manage the games.
 
 ## How it works?
 The app will handle the following:
-- Creation of the tournament made of 4 rounds
-- Creation of the 8 players 
+- Creation of the tournament made of 4 rounds each
+- Creation of 8 players with all the details (Full name, sex, age, rank, etc.) 
 - Generating pairs of players based on their ranking
 - Creation of match between each round
 - Once all the rounds are done, the app will save the results
