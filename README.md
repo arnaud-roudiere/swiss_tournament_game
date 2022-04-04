@@ -42,7 +42,7 @@ Install the packages with:
 
 ## How to use it?
 * Launch the App
-* You reached the Main menu, you can choose one of the 3 options : 1/Access the previous tournaments data 2/Create a new tournamen 3/Quit
+* You reached the Main menu, you can choose one of the 3 options : 1/Access the previous tournaments data 2/Create a new tournament 3/Quit
   * The nº 1 option will ask you to choose between : 1/Load the previous tournaments 2/Load the rounds 3/Load the matchs 4/ Load the players sorted alphabetically 5/ Load the players sorted by ranking
   * The nº 2 option will bring you to a form where to leave the tournament and players data
   * The nº 3 option will close the App
