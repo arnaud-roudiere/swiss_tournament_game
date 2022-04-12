@@ -85,8 +85,8 @@ class View:
         controle_temps = True
         while controle_temps is True:
             tournoi_actuel.controle_du_temps = input("Choisissez entre un mode de contrôle\
-         du temps entre bullet(1), blitz(2) ou un coup rapide(3)")
-            reponses_attendues = ['1', '2', '3']
+         du temps entre 'bullet', 'blitz' ou 'coup rapide'")
+            reponses_attendues = ['bullet', 'blitz', 'coup rapide']
             if tournoi_actuel.controle_du_temps not in reponses_attendues:
                 print('Réponse incorrecte. Veuillez retenter.')
             else:
