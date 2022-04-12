@@ -35,10 +35,12 @@ Once done, you can close it typing:
 Install the packages with:
 <code class="language-bash" data-lang="bash">pip install -r requirements.txt</code><br><br>
 
-
 <li>4.Run the App</li>
 - For unix or macos: <code class="language-bash" data-lang="bash">python3 main.py</code><br>
 - For windows: <code class="language-bash" data-lang="bash">py main.py</code><br>
+
+<li>5.Edit a Flake8 report in HTML</li>
+- <code class="language-bash" data-lang="bash"flake8 --format=html --htmldir=flake-report</code><br>
 
 ## How to use it?
 * Launch the App
