@@ -40,7 +40,7 @@ Install the packages with:
 - For windows: <code class="language-bash" data-lang="bash">py main.py</code><br><br>
 
 <li>5. Edit a Flake8 report in HTML</li>
-- <code class="language-bash" data-lang="bash">flake8 --format=html --htmldir=flake-report</code><br>
+Open the Terminal and type the following: <code class="language-bash" data-lang="bash">flake8 --format=html --htmldir=flake-report</code><br>
 
 ## How to use it?
 * Launch the App
