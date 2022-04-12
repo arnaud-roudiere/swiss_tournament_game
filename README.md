@@ -19,11 +19,11 @@ It includes flake8 to check if the app complies with the PEP8 requirements.
 
 In order to launch the app, you'll need to::<br><br>
 
-<li>1.Clone the repository</li>
+<li>1. Clone the repository</li>
 Enter the following in your Terminal to clone the Github repository:
 <code class="language-bash" data-lang="bash">git@github.com:arnaud-roudiere/swiss_tournament_game.git</code><br><br>
 
-<li>2.Create a virtual environnement</li>
+<li>2. Create a virtual environnement</li>
 To install the package, open the Terminal and type the following:
 <code class="language-bash" data-lang="bash">pip install virtualenv</code><br>
 Create the virtual environnement:
@@ -31,15 +31,15 @@ Create the virtual environnement:
 Once done, you can close it typing:
 <code class="language-bash" data-lang="bash">deactivate</code><br><br>
 
-<li>3.Install the requirements</li>
+<li>3. Install the requirements</li>
 Install the packages with:
 <code class="language-bash" data-lang="bash">pip install -r requirements.txt</code><br><br>
 
-<li>4.Run the App</li>
+<li>4. Run the App</li>
 - For unix or macos: <code class="language-bash" data-lang="bash">python3 main.py</code><br>
-- For windows: <code class="language-bash" data-lang="bash">py main.py</code><br>
+- For windows: <code class="language-bash" data-lang="bash">py main.py</code><br><br>
 
-<li>5.Edit a Flake8 report in HTML</li>
+<li>5. Edit a Flake8 report in HTML</li>
 - <code class="language-bash" data-lang="bash">flake8 --format=html --htmldir=flake-report</code><br>
 
 ## How to use it?
