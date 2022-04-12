@@ -1,7 +1,8 @@
 import sys
 
+from models.joueurs import Joueur
+from models.tournoi import Tournament
 
-liste_joueurs = {}
 details_tournoi = {}
 
 
@@ -61,6 +62,9 @@ class View:
         return choix
 
     def creation_tournoi(self):
+        liste_joueurs = {}
+        tournoi_actuel = Tournament
+
         """Création du tournoi
 
         Returns:
@@ -70,54 +74,99 @@ class View:
 
         print("*--------------- Création d'un tournoi --------------- *")
 
-        print(f"Entrez les données du tournoi:")
-        nom_du_tournoi = input("Tapez le nom du tournoi")
-        lieu = input("Tapez le lieu")
-        date_debut = input("Tapez la date de début du tournoi")
-        date_fin = input("Tapez la date de fin du tournoi")
-        tournees = input("Tapez le nombre de matchs")
-        # Par défaut 4
-        joueurs = input("Entrez le nombre de joueurs")
-        # Par défaut 8
+        print("Entrez les données du tournoi:")
+        tournoi_actuel.nom_du_tournoi = input("Tapez le nom du tournoi")
+        tournoi_actuel.lieu = input("Tapez le lieu")
+        tournoi_actuel.date_debut = input("Tapez la date de début du tournoi")
+        tournoi_actuel.date_fin = input("Tapez la date de fin du tournoi")
+        tournoi_actuel.joueurs = 8
+        tournoi_actuel.nombre_de_tours = 4
+        tournoi_actuel.tournees = input("Tapez le nombre de matchs")
         controle_temps = True
         while controle_temps is True:
-            controle_du_temps   = input("Choisissez entre un mode de contrôle\
+            tournoi_actuel.controle_du_temps = input("Choisissez entre un mode de contrôle\
          du temps entre bullet(1), blitz(2) ou un coup rapide(3)")
-            reponses_attendues = ['1','2','3']
-            if controle_du_temps not in reponses_attendues:
+            reponses_attendues = ['1', '2', '3']
+            if tournoi_actuel.controle_du_temps not in reponses_attendues:
                 print('Réponse incorrecte. Veuillez retenter.')
             else:
                 controle_temps = False
-        description = input("Entrez la description du tournoi")
+        tournoi_actuel.description = input("Entrez la description du tournoi")
 
-        nombre_de_tours = 4
-
-        details_tournoi[nom_du_tournoi] = (lieu , date_debut ,
-         date_fin , nombre_de_tours , tournees , joueurs ,
-          controle_du_temps , description)
+        details_tournoi[tournoi_actuel.nom_du_tournoi] = (
+            tournoi_actuel.lieu, tournoi_actuel.date_debut,
+            tournoi_actuel.date_fin,
+            tournoi_actuel.joueurs,
+            tournoi_actuel.nombre_de_tours,
+            tournoi_actuel.tournees,
+            tournoi_actuel.controle_du_temps,
+            tournoi_actuel.description)
 
         joueur: int
-
+        joueurs = 8
         NOMBRE_DE_JOUEURS = int(joueurs)
-        for joueur in range(0, NOMBRE_DE_JOUEURS):
-            joueur += 1
-            print(f"Entrez les données du joueur nº {joueur}")
-            nom_de_famille      = input("Tapez le nom du joueur")
-            prénom              = input("Tapez le prénom du joueur")
-            date_de_naissance   = input("Tapez la date de naissance du joueur")
-            sexe                = input("Tapez le sexe du joueur")
+        details_joueur = Joueur()
+        for details_joueur.id in range(0, NOMBRE_DE_JOUEURS):
+            details_joueur.id += 1
+            print(f"Entrez les données du joueur nº {details_joueur.id}")
+            details_joueur.nom_de_famille = input("Tapez le nom du joueur")
+            details_joueur.prénom = input("Tapez le prénom du joueur")
+            details_joueur.date_de_naissance = \
+                input("Tapez la date de naissance du joueur")
+            details_joueur.sexe = input("Tapez le sexe du joueur")
             controle_reponse = True
             while controle_reponse is True:
-                classement   = int(input("Tapez le classement du\
-                                    joueur (nombre positif)"))
+                details_joueur.classement = \
+                    int(input("Tapez le classement "
+                              "du joueur (nombre positif)"))
                 try:
-                    if int(classement) > 0:
+                    if int(details_joueur.classement) > 0:
                         controle_reponse = False
                     else:
                         print('Réponse incorrecte. Veuillez retenter.')
-                except:
+                except ValueError:
                     print('Réponse incorrecte. Veuillez retenter.')
-            liste_joueurs[joueur] = (nom_de_famille, prénom,
-             date_de_naissance, sexe, classement)
+            details_joueur.points = 0
+            liste_joueurs[details_joueur.id] = (
+                details_joueur.nom_de_famille,
+                details_joueur.prénom,
+                details_joueur.date_de_naissance,
+                details_joueur.sexe,
+                details_joueur.classement,
+                details_joueur.points)
 
         return self.Creation_paires(liste_joueurs, details_tournoi)
+
+    def resultats_matchs(self, nom_joueur_1):
+
+        nom_joueur_1 = nom_joueur_1
+
+        resultat_correct = True
+        while resultat_correct is True:
+
+            resultat_joueur_1 = input(
+                f"Tapez le score du joueur {nom_joueur_1} :")
+            resultats_acceptes = ['0', '0,5', '1']
+            if resultat_joueur_1 not in resultats_acceptes:
+                print('Résultat incorrect. Tapez au choix 0 0,5 ou 1')
+            else:
+                resultat_correct = False
+
+        return nom_joueur_1, resultat_joueur_1
+
+    def question_quit(self):
+        entree = True
+        reponses = ["1", "2"]
+        while entree is True:
+            choix_fin = input("Souhaitez-vous revenir "
+                              "sur le menu ou bien quitter"
+                              " l'application?\n1/Revenir au menu"
+                              " \n2/Quitter \nTapez votre option (1 ou 2)")
+            if choix_fin not in reponses:
+                return print(
+                    "La réponse est incorrecte, veuillez réessayer")
+            elif choix_fin == '2':
+                print('**************** Tournoi terminé *********************')
+                quit()
+            else:
+                return choix_fin
