@@ -254,11 +254,11 @@ class Application:
                 liste_paire_joueurs.append(paire_1)
                 paire_1 = []
             else:
-                try:
+                if len(liste_joueurs_classement) > 1:
                     paire_1.append(liste_joueurs_classement[1][0])
                     liste_joueurs_classement = [liste_joueurs_classement[0]] +\
                         liste_joueurs_classement[2:]
-                except ValueError:
+                else:
                     paire_1.append(liste_joueurs_classement[0][0])
                     liste_joueurs_classement = liste_joueurs_classement[1:]
                 liste_paire_joueurs.append(paire_1)
