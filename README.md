@@ -21,7 +21,7 @@ In order to launch the app, you'll need to::<br><br>
 
 <li>1. Clone the repository</li>
 Enter the following in your Terminal to clone the Github repository:
-<code class="language-bash" data-lang="bash">git@github.com:arnaud-roudiere/swiss_tournament_game.git</code><br><br>
+<code class="language-bash" data-lang="bash">git clone https://github.com/arnaud-roudiere/swiss_tournament_game.git</code><br><br>
 
 <li>2. Create a virtual environnement</li>
 To install the package, open the Terminal and type the following:
