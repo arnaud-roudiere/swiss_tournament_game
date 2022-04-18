@@ -102,7 +102,6 @@ class Application:
                 tuple_match,
                 liste_joueurs,
                 resultats_precedents)
-
             # ----> Refaire des paires de joueurs
             liste_paire_joueurs = self.paires_de_joueurs(
                 liste_joueurs_classement,
@@ -155,22 +154,22 @@ class Application:
 
             if len(resultats_precedents) < 8:
                 resultats_precedents.update({match_en_cours.nom_joueur_1:
-                                            int(match_en_cours.
-                                                resultat_joueur_1)})
+                                            float(match_en_cours.
+                                                  resultat_joueur_1)})
                 resultats_precedents.update({match_en_cours.nom_joueur_2:
-                                            int(match_en_cours.
-                                                resultat_joueur_2)})
+                                            float(match_en_cours.
+                                                  resultat_joueur_2)})
             else:
                 resultats_precedents.update({match_en_cours.nom_joueur_1:
                                             resultats_precedents[
                                                 match_en_cours.nom_joueur_1] +
-                                            int(match_en_cours.
-                                                resultat_joueur_1)})
+                                            float(match_en_cours.
+                                                  resultat_joueur_1)})
                 resultats_precedents.update({match_en_cours.nom_joueur_2:
                                             resultats_precedents[
                                                 match_en_cours.nom_joueur_2] +
-                                            int(match_en_cours.
-                                                resultat_joueur_2)})
+                                            float(match_en_cours.
+                                                  resultat_joueur_2)})
 
             tour = "Tour nº" + str(self.tour_en_cours.tour)
 
@@ -245,20 +244,25 @@ class Application:
 
         paire_1 = []
         liste_paire_joueurs = []
+        nombre_de_tours = 4
         for i in range(nombre_de_tours):
             paire_1.append(liste_joueurs_classement[0][0])
-            liste_joueurs_classement.remove(liste_joueurs_classement[0])
+            liste_joueurs_classement = liste_joueurs_classement[1:]
             if [paire_1[0], liste_joueurs_classement[0][0]] not in stack:
                 paire_1.append(liste_joueurs_classement[0][0])
-                liste_joueurs_classement.remove(liste_joueurs_classement[0])
+                liste_joueurs_classement = liste_joueurs_classement[1:]
                 liste_paire_joueurs.append(paire_1)
                 paire_1 = []
             else:
-                paire_1.append(liste_joueurs_classement[1][0])
-                liste_joueurs_classement.remove(liste_joueurs_classement[1])
+                try:
+                    paire_1.append(liste_joueurs_classement[1][0])
+                    liste_joueurs_classement = [liste_joueurs_classement[0]] +\
+                        liste_joueurs_classement[2:]
+                except ValueError:
+                    paire_1.append(liste_joueurs_classement[0][0])
+                    liste_joueurs_classement = liste_joueurs_classement[1:]
                 liste_paire_joueurs.append(paire_1)
                 paire_1 = []
-
         return liste_paire_joueurs
 
     def fin_tournoi(self):
