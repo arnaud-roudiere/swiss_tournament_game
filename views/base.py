@@ -3,8 +3,6 @@ import sys
 from models.joueurs import Joueur
 from models.tournoi import Tournament
 
-details_tournoi = {}
-
 
 class View:
 
@@ -63,6 +61,7 @@ class View:
 
     def creation_tournoi(self):
         liste_joueurs = {}
+        details_tournoi = {}
         tournoi_actuel = Tournament
 
         """Création du tournoi
@@ -146,9 +145,9 @@ class View:
 
             resultat_joueur_1 = input(
                 f"Tapez le score du joueur {nom_joueur_1} :")
-            resultats_acceptes = ['0', '0,5', '1']
+            resultats_acceptes = ['0', '0.5', '1']
             if resultat_joueur_1 not in resultats_acceptes:
-                print('Résultat incorrect. Tapez au choix 0 0,5 ou 1')
+                print('Résultat incorrect. Tapez au choix 0 0.5 ou 1')
             else:
                 resultat_correct = False
 
