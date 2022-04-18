@@ -70,7 +70,7 @@ class Save:
         for i, j in enumerate(liste_joueurs_classement):
             joueur = liste_joueurs[i][1][0]
             liste_des_joueurs.append(joueur)
-            joueurs_classement.insert({liste_joueurs[i][1][0]: [j[0],j[1]]})
+            joueurs_classement.insert({liste_joueurs[i][1][0]: [j[0], j[1]]})
 
         liste_des_joueurs.sort()
 
